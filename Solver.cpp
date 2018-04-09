@@ -12,6 +12,22 @@ Solver::Solver(Board input){
     solved = false;
 }
 
+void Solver::eliminate(int x, int y){
+
+}
+
+void Solver::eliminateVertical(int x, int y){
+
+}
+
+void Solver::eliminateHorizontal(int x, int y){
+
+}
+
+void Solver::eliminateSquare(int x, int y){
+
+}
+
 void Solver::solve(){
 
 }
