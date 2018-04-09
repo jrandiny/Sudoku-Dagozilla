@@ -7,7 +7,7 @@ using namespace std;
 
 class Node{
     private:
-        vector<int> kemungkinan;
+        // vector<int> kemungkinan;
         int isi;
 
     public:
@@ -15,8 +15,9 @@ class Node{
         Node(int isi);
 
         int getIsi();
-        vector<int> getKemungkinan();
-        void setKemungkinan(vector<int> kemungkinan);
+        void setIsi(int isi);
+        // vector<int> getKemungkinan();
+        // void setKemungkinan(vector<int> kemungkinan);
 
 
 };

@@ -8,10 +8,12 @@ class Solver{
     private:
         Board papan;
         bool solved;
-        void eliminate(int x, int y);
-        void eliminateVertical(int x, int y);
-        void eliminateHorizontal(int x, int y);
-        void eliminateSquare(int x, int y);
+        // void eliminate(int x, int y);
+        // void eliminateVertical(int x, int y);
+        // void eliminateHorizontal(int x, int y);
+        // void eliminateSquare(int x, int y);
+        bool isSafe(int x, int y, int isi);
+        bool isDalamSekunder(int x, int y);
 
     public:
         Solver();

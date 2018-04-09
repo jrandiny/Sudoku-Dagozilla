@@ -25,7 +25,7 @@ Board::Board(Node input[9][9]){
 }
 
 void Board::setNode(int x, int y, Node input){
-    papan[x+1][y+1] = input;
+    papan[x][y] = input;
 }
 
 void Board::print(){
@@ -44,4 +44,8 @@ void Board::setBoard(Node input[9][9]){
             papan[i][j]=input[i][j];
         }
     }
+}
+
+Node Board::getNode(int x, int y){
+    return papan[x][y];
 }

@@ -12,9 +12,10 @@ class Board{
         Board();
         Board(Node input[9][9]);
 
-        void setNode(int x, int y,Node input);
+        void setNode(int x, int y, Node input);
         void print();
         void setBoard(Node input[9][9]);
+        Node getNode(int x, int y);
 
 };
 
