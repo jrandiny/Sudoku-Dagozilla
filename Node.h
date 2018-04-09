@@ -14,7 +14,7 @@ class Node{
         Node();
         Node(int isi);
 
-        void calculate();
+        int getIsi();
 
 };
 #endif
