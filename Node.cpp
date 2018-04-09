@@ -10,7 +10,15 @@ Node::Node(){
 
 Node::Node(int isi){
     this->isi = isi;
-    kemungkinan = {};
+
+    if(isi!=0){
+        kemungkinan = {};
+    }else{
+        kemungkinan = {1,2,3,4,5,6,7,8,9};
+    }
+
+
+
 }
 
 int Node::getIsi(){
