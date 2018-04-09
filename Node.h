@@ -15,6 +15,9 @@ class Node{
         Node(int isi);
 
         int getIsi();
+        vector<int> getKemungkinan();
+        void setKemungkinan(vector<int> kemungkinan);
+
 
 };
 #endif

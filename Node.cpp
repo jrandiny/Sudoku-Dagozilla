@@ -16,11 +16,16 @@ Node::Node(int isi){
     }else{
         kemungkinan = {1,2,3,4,5,6,7,8,9};
     }
-
-
-
 }
 
 int Node::getIsi(){
     return isi;
+}
+
+vector<int> Node::getKemungkinan(){
+    return kemungkinan;
+}
+
+void Node::setKemungkinan(vector<int> kemungkinan){
+    this->kemungkinan = kemungkinan;
 }
