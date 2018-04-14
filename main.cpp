@@ -11,21 +11,21 @@ int main(){
 
 	//Kamus
 	string jenis_input,manual_input[9];
-	char hasil_input[9][9];
-	int i,u,e,yes=0;
+	char hasil_input[9][9],final[9][9];
+	int i,u,e;
 
     /*Board board1;
     board1.print();*/
 
     cout<<"Program Menyelesaikan Hyper Sudoku"<<endl<<"----------------------------------"<<endl<<endl;
 
-	while(yes==0){
+	while(true){
    		cout<<"Pilih cara input(Manual/File)?"<<endl;
     	cin>>jenis_input;
 
     //Algoritma input manual dan cek per baris kalo kelebihan input ngulang input baris tersebut
     	if(jenis_input=="Manual"){
-    		cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
+    		cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka atau x tanpa spasi) :"<<endl;
 	 		 		
  				for(i=0;i<9;i++){
  					cin >> manual_input[i];
@@ -47,20 +47,34 @@ int main(){
 
         		for(i=0;i<9;i++){
         			for(u=0;u<9;u++){
-        				cout<<hasil_input[i][u];
-        			}
+           			}
         			cout<<endl;
         		}
         		cout<<endl;
-        		yes++;
-        		 
+
+    	//Algoritma ngubah x jadi 0
+    	for(i=0;i<9;i++){
+    		for(u=0;u<9;u++){
+    			if(hasil_input[i][u]=='x'){
+    				final[i][u]=0;
+    			}
+    			else{
+    				final[i][u]=hasil_input[i][u];
+    			}
+    			cout<<final[i][u];
+    		}
+    		cout<<endl;
+    	}
+    	break;			
+		
     	}	
+
 
     	/*Board board1(hasil_input);*/
 
     	else if(jenis_input=="File"){
 
-    		yes++;
+    		break;
     	}
     	else{
     		cout<<"Pilihannya hanya Manual dan File"<<endl;
