@@ -16,55 +16,28 @@ int main(){
 
     /*Board board1;
     board1.print();*/
+    Reader read;
 
     cout<<"Program Menyelesaikan Hyper Sudoku"<<endl<<"----------------------------------"<<endl<<endl;
 
-	while(yes==0){
+	while(true){
    		cout<<"Pilih cara input(Manual/File)?"<<endl;
     	cin>>jenis_input;
 
     //Algoritma input manual dan cek per baris kalo kelebihan input ngulang input baris tersebut
     	if(jenis_input=="Manual"){
     		cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
-	 		 		
- 				for(i=0;i<9;i++){
- 					cin >> manual_input[i];
- 					for(u=0;u<9;u++){
-   	    				//Algoritma cek baris
-        				if(manual_input[i].length()!=9){
-        					cout<<"Ulangi input baris "<<i+1<<" !!! (1 baris haya diisi oleh 9 angka antara 1-9 !!)"<<endl;
-       	    				for(e=0;e<i;e++){
-        						cout<<manual_input[e]<<endl;
-           					}
-       	    				i--;
-       	    				u=9;
-       	    			}
-       	    			else{
-       	    				hasil_input[i][u]=manual_input[i][u];
-        	    			}	
-       	    		}	
-        		}	
+            read.baca();
+    		break;
 
-        		for(i=0;i<9;i++){
-        			for(u=0;u<9;u++){
-        				cout<<hasil_input[i][u];
-        			}
-        			cout<<endl;
-        		}
-        		cout<<endl;
-        		yes++;
-        		 
-    	}	
+    	}else if(jenis_input=="File"){
 
-    	/*Board board1(hasil_input);*/
-
-    	else if(jenis_input=="File"){
-
-    		yes++;
+    		break;
     	}
     	else{
     		cout<<"Pilihannya hanya Manual dan File"<<endl;
 		}
 	}
+    
     return 0;
 }
