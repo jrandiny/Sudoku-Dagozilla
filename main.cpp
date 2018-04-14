@@ -11,13 +11,12 @@ int main(){
 
 	//Kamus
 	string jenis_input,manual_input[9];
-	char hasil_input[9][9],final[9][9];
-	int i,u,e;
+	char hasil_input[9][9];
+	int i,u,e,final[9][9];
 
     /*Board board1;
     board1.print();*/
-    Reader read;
-
+    
     cout<<"Program Menyelesaikan Hyper Sudoku"<<endl<<"----------------------------------"<<endl<<endl;
 
 	while(true){
@@ -26,7 +25,7 @@ int main(){
 
     //Algoritma input manual dan cek per baris kalo kelebihan input ngulang input baris tersebut
     	if(jenis_input=="Manual"){
-<<<<<<< HEAD
+
     		cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka atau x tanpa spasi) :"<<endl;
 	 		 		
  				for(i=0;i<9;i++){
@@ -61,7 +60,7 @@ int main(){
     				final[i][u]=0;
     			}
     			else{
-    				final[i][u]=hasil_input[i][u];
+    				final[i][u]=hasil_input[i][u]-'0';
     			}
     			cout<<final[i][u];
     		}
@@ -76,14 +75,14 @@ int main(){
 
     	else if(jenis_input=="File"){
 
-=======
+
     		cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
-            read.baca();
+            
     		break;
 
     	}else if(jenis_input=="File"){
 
->>>>>>> 081ff63e0b3d5382923c065abcdcb0ce7bb61438
+
     		break;
     	}
     	else{
