@@ -13,32 +13,10 @@ Solver::Solver(Board input){
     solved = false;
 }
 
-// void Solver::eliminate(int x, int y){
-//     eliminateVertical(int x, int y);
-//     eliminateHorizontal(int x, int y);
-//     eliminateSquare(int x, int y);
-//
-// }
-//
-// void Solver::eliminateVertical(int x, int y){
-//     vector<int> kemungkinan = {1,2,3,4,5,6,7,8,9};
-//     for(int i = 0; i<9;i++){
-//         Node sementara = papan.getNode(x,i);
-//         if(sementara.getIsi()!=0){
-//
-//         }
-//     }
-//
-// }
-//
-// void Solver::eliminateHorizontal(int x, int y){
-//
-// }
-//
-// void Solver::eliminateSquare(int x, int y){
-//
-// }
-
+/*
+* Menerima lokasi x, y, dan data yang ingin diisikan
+* Akan mereturn true jika bisa dimasukkan
+*/
 bool Solver::isSafe(int x, int y, int isi){
     bool aman = true;
 
@@ -118,6 +96,9 @@ bool Solver::isSafe(int x, int y, int isi){
     }
 }
 
+/*
+* Mengecek apakah suatu koordinat x,y ada di dalam kotak sekunder
+*/
 bool Solver::isDalamSekunder(int x, int y){
     bool diDalam = true;
 
