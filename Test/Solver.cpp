@@ -110,14 +110,6 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
-bool Solver::isEmpty(int x, int y, Node input[9][9], Board papan){
-	bool Empty = false;
-	int isi = papan.getNode(x,y);
-	if (isSafe(x,y,isi) && (Board().input[x][y].getIsi() == 0)) {
-		Empty = true;
-    }
-    return Empty;
-}
 bool isZero(int input[N][N], int &row, int &col)
 {
     for (row = 0; row < N; row++)
