@@ -6,6 +6,7 @@ class Reader{
 
     public:
         Reader();
+        Node** baca();
 };
 
 #endif
