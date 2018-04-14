@@ -110,7 +110,7 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
-bool isZero(int input[N][N], int row, int col)
+bool isZero(int input[N][N], int &row, int &col)
 {
     for (row = 0; row < N; row++)
         for (col = 0; col < N; col++)
