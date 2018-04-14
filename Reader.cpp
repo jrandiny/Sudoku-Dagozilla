@@ -1,13 +1,21 @@
 #include "Reader.h"
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+
+using namespace std;
 
 Reader::Reader(){
 
 }
 
-Node** Reader::baca(){
-    char manual_input[9];
+vector< vector<Node> > Reader::baca(){
+    string manual_input[9];
     char hasil_input[9][9];
-    Node output[9][9];
+    vector<vector<Node> > output;
+    output.resize(9);
+    output[0].resize(9);
 
     for(int i=0;i<9;i++){
         cin >> manual_input[i];
@@ -23,7 +31,7 @@ Node** Reader::baca(){
             }
             else{
                 hasil_input[i][u]=manual_input[i][u];
-                }
+            }
         }
     }
 
@@ -34,4 +42,19 @@ Node** Reader::baca(){
         cout<<endl;
     }
     cout<<endl;
+
+    for(int i=0;i<9;i++){
+        for(int u=0;u<9;u++){
+            if(hasil_input[i][u]=='x'){
+                output[i][u] = Node(0);
+            }
+            else{
+                output[i][u] = Node(hasil_input[i][u]-'0');
+            }
+            cout<<output[i][u].getIsi();
+        }
+    }
+
+    return output;
+
 }
