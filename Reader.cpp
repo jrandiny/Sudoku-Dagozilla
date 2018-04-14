@@ -14,8 +14,6 @@ vector< vector<Node> > Reader::baca(){
     string manual_input[9];
     char hasil_input[9][9];
     vector<vector<Node> > output;
-    output.resize(9);
-    output[0].resize(9);
 
     for(int i=0;i<9;i++){
         cin >> manual_input[i];
@@ -37,21 +35,26 @@ vector< vector<Node> > Reader::baca(){
 
     for(int i=0;i<9;i++){
         for(int u=0;u<9;u++){
-            cout<<hasil_input[i][u];
+            clog<<hasil_input[i][u];
         }
-        cout<<endl;
+        clog<<endl;
     }
-    cout<<endl;
+    clog<<endl;
+    clog<<"entering conversion"<<endl;
+
+    output.resize(9);
 
     for(int i=0;i<9;i++){
+        output[i].resize(9);
         for(int u=0;u<9;u++){
-            if(hasil_input[i][u]=='x'){
+            clog<<"trying to process : "<<hasil_input[i][u]<<endl;;
+            if((hasil_input[i][u]=='X')||(hasil_input[i][u]=='x')){
                 output[i][u] = Node(0);
             }
             else{
                 output[i][u] = Node(hasil_input[i][u]-'0');
             }
-            cout<<output[i][u].getIsi();
+            clog<<output[i][u].getIsi()<<endl;
         }
     }
 

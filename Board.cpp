@@ -16,12 +16,12 @@ Board::Board(){
             {0,0,0,4,1,9,0,0,5},
             {0,0,0,0,8,0,0,7,9}};
 
-    papan = contoh;
+    this->papan = contoh;
 
 }
 
-Board::Board(vector< vector<Node> > papan){
-    this->papan = papan;
+Board::Board(vector< vector<Node> > input):papan(input){
+
 }
 
 void Board::setNode(int x, int y, Node input){
@@ -38,8 +38,8 @@ void Board::print(){
 
 }
 
-void Board::setBoard(vector< vector<Node> > papan){
-    this->papan = papan;
+void Board::setBoard(vector< vector<Node> > input){
+    this->papan = input;
 }
 
 Node Board::getNode(int x, int y){

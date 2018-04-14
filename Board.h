@@ -10,11 +10,11 @@ class Board{
 
     public:
         Board();
-        Board(vector< vector<Node> > papan);
+        Board(vector< vector<Node> > input);
 
         void setNode(int x, int y, Node input);
         void print();
-        void setBoard(vector< vector<Node> > papan);
+        void setBoard(vector< vector<Node> > input);
         Node getNode(int x, int y);
 
 };
