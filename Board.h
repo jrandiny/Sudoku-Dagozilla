@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "Node.h"
-
+//Pendefinisian kelas dari kotak sudoku 9*9
 class Board{
     private:
         Node papan[9][9];

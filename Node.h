@@ -4,7 +4,7 @@
 #include <vector>
 
 using namespace std;
-
+// Pendefenisian kelas dari komponen sudoku
 class Node{
     private:
         // vector<int> kemungkinan;

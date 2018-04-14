@@ -3,7 +3,7 @@
 
 #include "Board.h"
 #include "Node.h"
-
+// Pendefinisian kelas dari penyelesaian sudoku
 class Solver{
     private:
         Board papan;
@@ -14,6 +14,7 @@ class Solver{
         // void eliminateSquare(int x, int y);
         bool isSafe(int x, int y, int isi);
         bool isDalamSekunder(int x, int y);
+        bool isEmpty(int x, int y, Node input[9][9], Board papan);  // ngecek apakah isinya 0 atau angka lain
 
     public:
         Solver();

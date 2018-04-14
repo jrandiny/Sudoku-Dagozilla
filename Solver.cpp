@@ -116,6 +116,7 @@ bool Solver::isSafe(int x, int y, int isi){
             }
         }
     }
+  return aman;
 }
 
 bool Solver::isDalamSekunder(int x, int y){
@@ -128,6 +129,14 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
+bool Solver::isEmpty(int x, int y, Node input[9][9], Board papan){
+	bool Empty = false;
+	int isi = papan.getNode(x,y);
+	if (isSafe(x,y,isi) && (Board().input[x][y].getIsi() == 0)) {
+		Empty = true;
+    }
+    return Empty;
+}
 void Solver::solve(){
 
 }
