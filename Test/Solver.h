@@ -16,11 +16,11 @@ class Solver{
         bool isDalamSekunder(int x, int y);
 
     public:
-        bool isZero(int input[N][N], int &row, int &col);
+        bool isZero(Board input, int &row, int &col);
         Solver();
         Solver(Board input);
 
-        void solve(Board input);
+        bool solve(Board input);
         bool isSolved();
         Board getBoard();
         void setBoard(Board input);

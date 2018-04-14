@@ -110,16 +110,16 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
-bool isZero(int input[N][N], int &row, int &col)
+bool isZero(Board input, int &row, int &col)
 {
-    for (row = 0; row < N; row++)
-        for (col = 0; col < N; col++)
+    for (row = 0; row < 9; row++)
+        for (col = 0; col < 9; col++)
             if (input[row][col] == 0)
                 return true;
     return false;
 }
  
-void Solver::solve(Board input){
+bool Solver::solve(Board input){
 	int row, col;
  
     // Jika tidak ada lokasi yang kosong
