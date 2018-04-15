@@ -30,32 +30,52 @@ void Board::setNode(int row, int col, Node input){
     papan[row][col] = input;
 }
 
+/*
+*   Fungsi untuk mencetak ke layar
+*/
 void Board::print(){
 
     for(int i = 0; i<9;i++){
         for(int j = 0; j<9; j++){
             cout <<" "<< papan[i][j].getIsi();
+
+            //mencetak pemisah
             if((j==2)||(j==5)){
                 cout<<" |";
             }
         }
+        //mencetak pemisah pada di antara 3/4 dan 6/7
         if((i==2)||(i==5)){
             cout<<endl<<"-----------------------"<<endl;
         }else{
             cout << endl;
         }
+
     }
 }
 
-void Board::printSave(){
+/*
+*   Fungsi yang bertindak untuk menyimpan output ke file
+*/
+void Board::printSave(string namaFile){
     ofstream save;
-    save.open("save.txt");
+    save.open(namaFile);
 
     for(int i = 0; i<9;i++){
         for(int j = 0; j<9; j++){
-            save << papan[i][j].getIsi();
+            save <<" "<< papan[i][j].getIsi();
+
+            //mencetak pemisah
+            if((j==2)||(j==5)){
+                save<<" |";
+            }
         }
-        save << endl;
+        //mencetak pemisah pada di antara 3/4 dan 6/7
+        if((i==2)||(i==5)){
+            save<<endl<<"-----------------------"<<endl;
+        }else{
+            save << endl;
+        }
     }
 
 }

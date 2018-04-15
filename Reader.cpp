@@ -9,6 +9,9 @@ Reader::Reader(){
 
 }
 
+/*
+*   Fungsi membaca dari layar
+*/
 vector< vector<Node> > Reader::baca(){
     string manual_input[9];
     char hasil_input[9][9];
@@ -61,6 +64,10 @@ vector< vector<Node> > Reader::baca(){
 
 }
 
+
+/*
+*   Fungsi membaca dari file
+*/
 vector< vector<Node> > Reader::bacaFile(string namaFile){
   int baris,kolom;
   char x;
@@ -83,39 +90,38 @@ vector< vector<Node> > Reader::bacaFile(string namaFile){
     baca>>x;
     switch (x) {
       case 'x' :
-        a[i][j] = 0;
+        a[j][i] = 0;
         break;
       case '1' :
-        a[i][j] = 1;
+        a[j][i] = 1;
         break;
       case '2' :
-        a[i][j] = 2;
+        a[j][i] = 2;
         break;
       case '3' :
-        a[i][j] = 3;
+        a[j][i] = 3;
         break;
       case '4' :
-        a[i][j] = 4;
+        a[j][i] = 4;
         break;
       case '5' :
-        a[i][j] = 5;
+        a[j][i] = 5;
         break;
       case '6' :
-        a[i][j] = 6;
+        a[j][i] = 6;
         break;
       case '7' :
-        a[i][j] = 7;
+        a[j][i] = 7;
         break;
       case '8' :
-        a[i][j] = 8;
+        a[j][i] = 8;
         break;
       case '9' :
-        a[i][j] = 9;
+        a[j][i] = 9;
         break;
 
     }
     clog<<a[i][j];
-    //cout<<x;
     }
     clog<<endl;
     }
@@ -126,7 +132,7 @@ vector< vector<Node> > Reader::bacaFile(string namaFile){
         output[i].resize(9);
         for(int u=0;u<9;u++){
             clog<<"trying to process : "<<a[i][u]<<endl;;
-            if((a[i][u]==0)||(a[i][u]==0)){
+            if(a[i][u]==0){
                 output[i][u] = Node(0);
             }
             else{
@@ -136,6 +142,7 @@ vector< vector<Node> > Reader::bacaFile(string namaFile){
         }
     }
 
+    delete[] a;
 
     return output;
 
