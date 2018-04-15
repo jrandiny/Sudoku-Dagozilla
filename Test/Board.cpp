@@ -6,7 +6,7 @@
 using namespace std;
 
 Board::Board(){
-    Node isiContoh[9][9] = {{5,3,0,0,7,0,0,0,0},
+    vector< vector<Node> > contoh = {{5,3,0,0,7,0,0,0,0},
             {6,0,0,1,9,5,0,0,0},
             {0,9,8,0,0,0,0,6,0},
             {8,0,0,0,6,0,0,0,3},
@@ -16,12 +16,12 @@ Board::Board(){
             {0,0,0,4,1,9,0,0,5},
             {0,0,0,0,8,0,0,7,9}};
 
-    setBoard(isiContoh);
+    this->papan = contoh;
 
 }
 
-Board::Board(Node input[9][9]){
-    setBoard(input);
+Board::Board(vector< vector<Node> > input):papan(input){
+
 }
 
 void Board::setNode(int x, int y, Node input){
@@ -38,12 +38,8 @@ void Board::print(){
 
 }
 
-void Board::setBoard(Node input[9][9]){
-    for(int i = 0; i<9;i++){
-        for(int j = 0; j<9; j++){
-            papan[i][j]=input[i][j];
-        }
-    }
+void Board::setBoard(vector< vector<Node> > input){
+    this->papan = input;
 }
 
 Node Board::getNode(int x, int y){
