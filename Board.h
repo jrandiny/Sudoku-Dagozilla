@@ -12,10 +12,10 @@ class Board{
         Board();
         Board(vector< vector<Node> > input);
 
-        void setNode(int x, int y, Node input);
+        void setNode(int row, int col, Node input);
         void print();
         void setBoard(vector< vector<Node> > input);
-        Node& getNode(int x, int y);
+        Node& getNode(int row, int col);
 
 };
 

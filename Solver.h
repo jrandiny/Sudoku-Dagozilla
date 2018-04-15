@@ -12,8 +12,8 @@ class Solver{
         // void eliminateVertical(int x, int y);
         // void eliminateHorizontal(int x, int y);
         // void eliminateSquare(int x, int y);
-        bool isSafe(Board input, int x, int y, int isi);
-        bool isDalamSekunder(int x, int y);
+        bool isSafe(Board input, int row, int col, int isi);
+        bool isDalamSekunder(int row, int col);
         bool isEmpty(Board papan, int& row, int& col);  // ngecek apakah isinya 0 atau angka lain
 
     public:
@@ -21,7 +21,7 @@ class Solver{
         Solver(Board input);
 
         bool solve();
-        bool solve(Board input);
+        bool solve(Board& input);
         bool isSolved();
         Board getBoard();
         void setBoard(Board input);

@@ -25,10 +25,7 @@ int main(){
 		if(jenis_input=="Manual"){
 			cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
 			//Board papan(read.baca());
-			Board papan;
-			Solver solverr(papan);
-			solverr.solve();
-			solverr.getBoard().print();
+			Board papan(read.baca());
 			break;
 
 		}else if(jenis_input=="File"){
@@ -40,6 +37,15 @@ int main(){
 			cout<<"Pilihannya hanya Manual dan File"<<endl;
 		}
 	}
+
+	Solver solverr(papan);
+	if(solverr.solve()){
+		cout<<"SELESAI"<<endl;
+	}else{
+		cout<<"Gagal"<<endl;
+	}
+
+	solverr.getBoard().print();
 
 	return 0;
 }

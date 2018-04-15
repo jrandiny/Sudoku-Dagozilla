@@ -18,13 +18,14 @@ Solver::Solver(Board input){
 * Menerima lokasi x, y, dan data yang ingin diisikan
 * Akan mereturn true jika bisa dimasukkan
 */
-bool Solver::isSafe(Board input, int x, int y, int isi){
+bool Solver::isSafe(Board input, int row, int col, int isi){
     bool aman = true;
 
     //cek horizontal
     for(int i = 0; i<9;i++){
-        Node sementara = input.getNode(i,y);
+        Node sementara = input.getNode(row,i);
         if(isi==sementara.getIsi()){
+            clog<<"not pass horiz"<<endl;
             aman = false;
             break;
         }
@@ -33,8 +34,9 @@ bool Solver::isSafe(Board input, int x, int y, int isi){
     //cek vertikal
     if(aman){
         for(int i = 0; i<9;i++){
-            Node sementara = input.getNode(x,i);
+            Node sementara = input.getNode(i,col);
             if(isi==sementara.getIsi()){
+                clog<<"not pass ver"<<endl;
                 aman = false;
                 break;
             }
@@ -44,13 +46,14 @@ bool Solver::isSafe(Board input, int x, int y, int isi){
 
     //cek kotak primer
     if(aman){
-        int kotakX = x/3;
-        int kotakY = y/3;
+        int kotakY = row/3;
+        int kotakX = col/3;
 
         for(int i = (3*kotakX);i<=((3*kotakX)+2);i++){
             for(int j = (3*kotakY);j<=((3*kotakY)+2);j++){
-                Node sementara = input.getNode(x,i);
+                Node sementara = input.getNode(j,i);
                 if(isi==sementara.getIsi()){
+                    clog<<"not pass primer"<<endl;
                     aman = false;
                     break;
                 }
@@ -59,36 +62,41 @@ bool Solver::isSafe(Board input, int x, int y, int isi){
     }
 
     //cek kotak sekunder
-    if(aman && isDalamSekunder(x, y)){
+    if(aman && isDalamSekunder(row, col)){
         int kotakX;
         int kotakY;
 
-        if(x<4){
-            if(y<4){
+        if(col<4){
+            if(row<4){
                 //kiri atas
+                clog<<"sek kir atas"<<endl;
                 kotakX = 1;
                 kotakY = 1;
             }else{
                 //kiri bawah
+                clog<<"sek kir baw"<<endl;
                 kotakX = 1;
                 kotakY = 5;
 
             }
         }else{
-            if(y<4){
+            if(row<4){
                 //kanan atas
+                clog<<"sek kana ats"<<endl;
                 kotakX = 5;
                 kotakY = 1;
             }else{
+                clog<<"sek kana baw"<<endl;
                 kotakX = 5;
                 kotakY = 5;
             }
         }
 
-        for(int i = (3*kotakX);i<=((3*kotakX)+2);i++){
-            for(int j = (3*kotakY);j<=((3*kotakY)+2);j++){
-                Node sementara = input.getNode(x,i);
+        for(int i = (kotakX);i<=((kotakX)+2);i++){
+            for(int j = (kotakY);j<=((kotakY)+2);j++){
+                Node sementara = input.getNode(j,i);
                 if(isi==sementara.getIsi()){
+                    clog<<"not pass sekunder"<<endl;
                     aman = false;
                     break;
                 }
@@ -101,10 +109,10 @@ bool Solver::isSafe(Board input, int x, int y, int isi){
 /*
 * Mengecek apakah suatu koordinat x,y ada di dalam kotak sekunder
 */
-bool Solver::isDalamSekunder(int x, int y){
+bool Solver::isDalamSekunder(int row, int col){
     bool diDalam = true;
 
-    if(x==0||x==4||y==0||y==4||x==8||y==8){
+    if(row==0||row==4||col==0||col==4||row==8||col==8){
         diDalam = false;
     }
 
@@ -112,10 +120,14 @@ bool Solver::isDalamSekunder(int x, int y){
 }
 
 bool Solver::isEmpty(Board input, int& row, int& col){
-	for (row = 0; row < 9; row++)
-        for (col = 0; col < 9; col++)
-            if (input.getNode(row,col).getIsi() == 0)
+	for (row = 0; row < 9; row++){
+        for (col = 0; col < 9; col++){
+            if (input.getNode(row,col).getIsi() == 0){
                 return true;
+            }
+        }
+    }
+
     return false;
 }
 
@@ -123,7 +135,7 @@ bool Solver::solve(){
     return solve(papan);
 }
 
-bool Solver::solve(Board input){
+bool Solver::solve(Board& input){
     int row, col;
 
     // Jika tidak ada lokasi yang kosong
@@ -135,16 +147,19 @@ bool Solver::solve(Board input){
     // mencoba menggunakan angka 1-9
     for (int num = 1; num <= 9; num++)
     {
+        clog<<"trying = "<<row<<","<<col<<","<<num<<endl;
+        input.print();
         if (isSafe(input, row, col, num))
         {
-            cout<<"hei = "<<row<<","<<col<<","<<num<<endl;
-            cout<<input.getNode(row,col).getIsi()<<endl;
+            clog<<"safe"<<endl;
             input.getNode(row,col).setIsi(num);
             input.print();
             if (solve(input)){
+                clog<<"yes";
                 return true;
+            }else{
+                input.getNode(row,col).setIsi(0);
             }
-            input.getNode(row,col).setIsi(0);
         }
     }
     return false;
