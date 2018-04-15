@@ -42,6 +42,6 @@ void Board::setBoard(vector< vector<Node> > input){
     this->papan = input;
 }
 
-Node Board::getNode(int x, int y){
+Node& Board::getNode(int x, int y){
     return papan[x][y];
 }

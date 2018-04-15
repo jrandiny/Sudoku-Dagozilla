@@ -1,7 +1,7 @@
 #include "Node.h"
 #include "Board.h"
 #include "Reader.h"
-// #include "Solver.h"
+#include "Solver.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -24,7 +24,11 @@ int main(){
 		//Algoritma input manual dan cek per baris kalo kelebihan input ngulang input baris tersebut
 		if(jenis_input=="Manual"){
 			cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
-			Board papan(read.baca());
+			//Board papan(read.baca());
+			Board papan;
+			Solver solverr(papan);
+			solverr.solve();
+			solverr.getBoard().print();
 			break;
 
 		}else if(jenis_input=="File"){

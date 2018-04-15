@@ -15,7 +15,7 @@ class Board{
         void setNode(int x, int y, Node input);
         void print();
         void setBoard(vector< vector<Node> > input);
-        Node getNode(int x, int y);
+        Node& getNode(int x, int y);
 
 };
 

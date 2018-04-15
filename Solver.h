@@ -12,15 +12,16 @@ class Solver{
         // void eliminateVertical(int x, int y);
         // void eliminateHorizontal(int x, int y);
         // void eliminateSquare(int x, int y);
-        bool isSafe(int x, int y, int isi);
+        bool isSafe(Board input, int x, int y, int isi);
         bool isDalamSekunder(int x, int y);
-        bool isEmpty(int x, int y, Node input[9][9], Board papan);  // ngecek apakah isinya 0 atau angka lain
+        bool isEmpty(Board papan, int& row, int& col);  // ngecek apakah isinya 0 atau angka lain
 
     public:
         Solver();
         Solver(Board input);
 
-        void solve();
+        bool solve();
+        bool solve(Board input);
         bool isSolved();
         Board getBoard();
         void setBoard(Board input);

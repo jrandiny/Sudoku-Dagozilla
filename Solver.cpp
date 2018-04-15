@@ -1,6 +1,7 @@
 #include "Solver.h"
 #include "Board.h"
 #include "Node.h"
+#include <iostream>
 
 using namespace std;
 
@@ -17,12 +18,12 @@ Solver::Solver(Board input){
 * Menerima lokasi x, y, dan data yang ingin diisikan
 * Akan mereturn true jika bisa dimasukkan
 */
-bool Solver::isSafe(int x, int y, int isi){
+bool Solver::isSafe(Board input, int x, int y, int isi){
     bool aman = true;
 
     //cek horizontal
     for(int i = 0; i<9;i++){
-        Node sementara = papan.getNode(i,y);
+        Node sementara = input.getNode(i,y);
         if(isi==sementara.getIsi()){
             aman = false;
             break;
@@ -32,7 +33,7 @@ bool Solver::isSafe(int x, int y, int isi){
     //cek vertikal
     if(aman){
         for(int i = 0; i<9;i++){
-            Node sementara = papan.getNode(x,i);
+            Node sementara = input.getNode(x,i);
             if(isi==sementara.getIsi()){
                 aman = false;
                 break;
@@ -48,7 +49,7 @@ bool Solver::isSafe(int x, int y, int isi){
 
         for(int i = (3*kotakX);i<=((3*kotakX)+2);i++){
             for(int j = (3*kotakY);j<=((3*kotakY)+2);j++){
-                Node sementara = papan.getNode(x,i);
+                Node sementara = input.getNode(x,i);
                 if(isi==sementara.getIsi()){
                     aman = false;
                     break;
@@ -86,7 +87,7 @@ bool Solver::isSafe(int x, int y, int isi){
 
         for(int i = (3*kotakX);i<=((3*kotakX)+2);i++){
             for(int j = (3*kotakY);j<=((3*kotakY)+2);j++){
-                Node sementara = papan.getNode(x,i);
+                Node sementara = input.getNode(x,i);
                 if(isi==sementara.getIsi()){
                     aman = false;
                     break;
@@ -110,16 +111,43 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
-bool Solver::isEmpty(int x, int y, Node input[9][9], Board papan){
-	bool Empty = false;
-	int isi = papan.getNode(x,y).getIsi();
-	if (isSafe(x,y,isi) && (Board().getNode(x,y).getIsi() == 0)) {
-		Empty = true;
-    }
-    return Empty;
+bool Solver::isEmpty(Board input, int& row, int& col){
+	for (row = 0; row < 9; row++)
+        for (col = 0; col < 9; col++)
+            if (input.getNode(row,col).getIsi() == 0)
+                return true;
+    return false;
 }
-void Solver::solve(){
 
+bool Solver::solve(){
+    return solve(papan);
+}
+
+bool Solver::solve(Board input){
+    int row, col;
+
+    // Jika tidak ada lokasi yang kosong
+    if (!isEmpty(input, row, col)){
+        input.print();
+        return true;
+    }
+
+    // mencoba menggunakan angka 1-9
+    for (int num = 1; num <= 9; num++)
+    {
+        if (isSafe(input, row, col, num))
+        {
+            cout<<"hei = "<<row<<","<<col<<","<<num<<endl;
+            cout<<input.getNode(row,col).getIsi()<<endl;
+            input.getNode(row,col).setIsi(num);
+            input.print();
+            if (solve(input)){
+                return true;
+            }
+            input.getNode(row,col).setIsi(0);
+        }
+    }
+    return false;
 }
 
 void Solver::setBoard(Board input){
