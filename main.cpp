@@ -22,12 +22,13 @@ int main(){
 		if(jenis_input=="Manual"){
 			cout<<"Silahkan ketikan masukan anda di bawah ini (1 baris 9 angka tanpa spasi) :"<<endl;
 			//Board papan(read.baca());
-			Board papan(read.baca());
+			papan.setBoard(read.baca());
+			papan.print();
 			break;
 
 		}else if(jenis_input=="File"){
 
-			Board papan(read.bacaFile());
+			papan.setBoard(read.bacaFile());
 			break;
 		}
 		else{

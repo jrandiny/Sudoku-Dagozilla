@@ -115,10 +115,10 @@ vector< vector<Node> > Reader::bacaFile(){
         break;
 
     }
-    cout<<a[i][j];
+    clog<<a[i][j];
     //cout<<x;
     }
-    cout<<endl;
+    clog<<endl;
     }
 
     output.resize(9);

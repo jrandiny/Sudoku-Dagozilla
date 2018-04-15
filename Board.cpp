@@ -21,7 +21,8 @@ Board::Board(){
 
 }
 
-Board::Board(vector< vector<Node> > input):papan(input){
+Board::Board(vector< vector<Node> > input){
+    this->papan =input;
 
 }
 

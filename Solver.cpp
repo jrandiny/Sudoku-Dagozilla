@@ -10,7 +10,7 @@ Solver::Solver(){
 }
 
 Solver::Solver(Board input){
-    papan = input;
+    this->papan = input;
     solved = false;
 }
 
