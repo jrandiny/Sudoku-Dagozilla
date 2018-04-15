@@ -1,6 +1,7 @@
 #include "Solver.h"
 #include "Board.h"
 #include "Node.h"
+#include <stdio.h>
 
 using namespace std;
 
@@ -110,11 +111,11 @@ bool Solver::isDalamSekunder(int x, int y){
     return diDalam;
 }
 
-bool isZero(Board input, int &row, int &col)
+bool Solver::isZero(Board input, int row, int col)
 {
-    for (row = 0; row < 9; row++)
-        for (col = 0; col < 9; col++)
-            if (input[row][col] == 0)
+    for (row = 0; row <= 9; row++)
+        for (col = 0; col <= 9; col++)
+            if (input.getNode(row,col).getIsi() == 0)
                 return true;
     return false;
 }
@@ -131,10 +132,10 @@ bool Solver::solve(Board input){
     {
         if (isSafe(row, col, num))
         {
-            input[row][col] = num;
+            input.getNode(row,col) = num;
             if (solve(input))
                 return true;
-            input[row][col] = 0;
+            input.getNode(row,col) = 0;
         }
     }
     return false;

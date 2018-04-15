@@ -16,7 +16,7 @@ class Solver{
         bool isDalamSekunder(int x, int y);
 
     public:
-        bool isZero(Board input, int &row, int &col);
+        bool isZero(Board input, int row, int col);
         Solver();
         Solver(Board input);
 
