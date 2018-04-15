@@ -34,11 +34,17 @@ void Board::print(){
 
     for(int i = 0; i<9;i++){
         for(int j = 0; j<9; j++){
-            cout << papan[i][j].getIsi();
+            cout <<" "<< papan[i][j].getIsi();
+            if((j==2)||(j==5)){
+                cout<<" |";
+            }
         }
-        cout << endl;
+        if((i==2)||(i==5)){
+            cout<<endl<<"-----------------------"<<endl;
+        }else{
+            cout << endl;
+        }
     }
-
 }
 
 void Board::printSave(){

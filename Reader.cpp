@@ -1,6 +1,5 @@
 #include "Reader.h"
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <vector>
 
@@ -62,7 +61,7 @@ vector< vector<Node> > Reader::baca(){
 
 }
 
-vector< vector<Node> > Reader::bacaFile(){
+vector< vector<Node> > Reader::bacaFile(string namaFile){
   int baris,kolom;
   char x;
   int** a;
@@ -70,7 +69,7 @@ vector< vector<Node> > Reader::bacaFile(){
 
   baris = 9; kolom = 9;
   ifstream baca;
-  baca.open("data.txt");
+  baca.open(namaFile);
 
 
   a = new int*[baris];
