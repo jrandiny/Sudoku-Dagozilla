@@ -2,6 +2,7 @@
 #include <vector>
 #include "Node.h"
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -29,6 +30,7 @@ void Board::setNode(int row, int col, Node input){
 }
 
 void Board::print(){
+
     for(int i = 0; i<9;i++){
         for(int j = 0; j<9; j++){
             cout << papan[i][j].getIsi();
@@ -37,6 +39,22 @@ void Board::print(){
     }
 
 }
+
+void Board::printSave(){
+    ofstream save;
+    save.open("save.txt");
+
+    for(int i = 0; i<9;i++){
+        for(int j = 0; j<9; j++){
+            save << papan[i][j].getIsi();
+        }
+        save << endl;
+    }
+
+}
+
+
+
 
 void Board::setBoard(vector< vector<Node> > input){
     this->papan = input;
