@@ -112,8 +112,8 @@ bool Solver::isDalamSekunder(int x, int y){
 
 bool Solver::isEmpty(int x, int y, Node input[9][9], Board papan){
 	bool Empty = false;
-	int isi = papan.getNode(x,y);
-	if (isSafe(x,y,isi) && (Board().input[x][y].getIsi() == 0)) {
+	int isi = papan.getNode(x,y).getIsi();
+	if (isSafe(x,y,isi) && (Board().getNode(x,y).getIsi() == 0)) {
 		Empty = true;
     }
     return Empty;

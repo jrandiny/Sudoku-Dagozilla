@@ -29,7 +29,7 @@ int main(){
 
 		}else if(jenis_input=="File"){
 
-
+			Board papan(read.bacaFile());
 			break;
 		}
 		else{
