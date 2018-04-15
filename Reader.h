@@ -10,6 +10,7 @@ class Reader{
     public:
         Reader();
         vector< vector<Node> > baca();
+        vector< vector<Node> > bacaFile();
 };
 
 #endif
