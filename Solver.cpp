@@ -140,7 +140,6 @@ bool Solver::solve(Board& input){
 
     // Jika tidak ada lokasi yang kosong
     if (!isEmpty(input, row, col)){
-        input.print();
         return true;
     }
 
@@ -148,12 +147,10 @@ bool Solver::solve(Board& input){
     for (int num = 1; num <= 9; num++)
     {
         clog<<"trying = "<<row<<","<<col<<","<<num<<endl;
-        input.print();
         if (isSafe(input, row, col, num))
         {
             clog<<"safe"<<endl;
             input.getNode(row,col).setIsi(num);
-            input.print();
             if (solve(input)){
                 clog<<"yes";
                 return true;
