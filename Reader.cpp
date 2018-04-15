@@ -68,9 +68,6 @@ vector< vector<Node> > Reader::bacaFile(){
   int** a;
   vector<vector<Node> > output;
 
-
-
-
   baris = 9; kolom = 9;
   ifstream baca;
   baca.open("data.txt");

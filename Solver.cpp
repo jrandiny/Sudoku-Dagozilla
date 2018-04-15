@@ -46,9 +46,11 @@ bool Solver::isSafe(Board input, int row, int col, int isi){
 
     //cek kotak primer
     if(aman){
+        //div untuk cari ujung kiri atas kotak primer
         int kotakY = row/3;
         int kotakX = col/3;
 
+        //cari di semua kotak dari kotak primer
         for(int i = (3*kotakX);i<=((3*kotakX)+2);i++){
             for(int j = (3*kotakY);j<=((3*kotakY)+2);j++){
                 Node sementara = input.getNode(j,i);
@@ -66,6 +68,7 @@ bool Solver::isSafe(Board input, int row, int col, int isi){
         int kotakX;
         int kotakY;
 
+        //cari pojok kiri atas kotak sekunder
         if(col<4){
             if(row<4){
                 //kiri atas
@@ -112,6 +115,7 @@ bool Solver::isSafe(Board input, int row, int col, int isi){
 bool Solver::isDalamSekunder(int row, int col){
     bool diDalam = true;
 
+    //jika menmenuhi ini maka ada di baris dan kolom yang bukan kotak sekunder
     if(row==0||row==4||col==0||col==4||row==8||col==8){
         diDalam = false;
     }
@@ -120,6 +124,7 @@ bool Solver::isDalamSekunder(int row, int col){
 }
 
 bool Solver::isEmpty(Board input, int& row, int& col){
+    //cari kotak yang kosong(beserta set row dan col yang kosong itu)
 	for (row = 0; row < 9; row++){
         for (col = 0; col < 9; col++){
             if (input.getNode(row,col).getIsi() == 0){
@@ -149,12 +154,14 @@ bool Solver::solve(Board& input){
         clog<<"trying = "<<row<<","<<col<<","<<num<<endl;
         if (isSafe(input, row, col, num))
         {
+            //jika aman set
             clog<<"safe"<<endl;
             input.getNode(row,col).setIsi(num);
             if (solve(input)){
                 clog<<"yes";
                 return true;
             }else{
+                //jika tidak balikin ke 0 untuk dicari lagi
                 input.getNode(row,col).setIsi(0);
             }
         }

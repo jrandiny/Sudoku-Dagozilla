@@ -8,9 +8,6 @@
 using namespace std;
 
 int main(){
-	/*Board board1;
-	board1.print();*/
-
 	string jenis_input;
 	Reader read;
 	Board papan;
