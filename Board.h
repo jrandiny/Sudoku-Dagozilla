@@ -6,15 +6,15 @@
 //Pendefinisian kelas dari kotak sudoku 9*9
 class Board{
     private:
-        Node papan[9][9];
+        vector< vector<Node> > papan;
 
     public:
         Board();
-        Board(Node input[9][9]);
+        Board(vector< vector<Node> > input);
 
         void setNode(int x, int y, Node input);
         void print();
-        void setBoard(Node input[9][9]);
+        void setBoard(vector< vector<Node> > input);
         Node getNode(int x, int y);
 
 };

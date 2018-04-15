@@ -7,7 +7,6 @@ using namespace std;
 // Pendefenisian kelas dari komponen sudoku
 class Node{
     private:
-        // vector<int> kemungkinan;
         int isi;
 
     public:
@@ -16,9 +15,6 @@ class Node{
 
         int getIsi();
         void setIsi(int isi);
-        // vector<int> getKemungkinan();
-        // void setKemungkinan(vector<int> kemungkinan);
-
 
 };
 #endif
