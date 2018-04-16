@@ -26,3 +26,22 @@ Program ini berisi logging yang sangat *verbose*, untuk mematikan ini bisa denga
 ```
 ./sudoku 2>sudoku.log
 ```
+
+## Format file
+
+Jika ingin menggunakan input file, format yang digunakan adalah sebagai berikut
+- 'x' untuk kotak kosong
+- angka 1 - 9 untuk kotak terisi
+
+Contoh
+```
+xxxx9x7xx
+x61xxxx4x
+xxxxx2xx3
+xx748xxxx
+x8xxxx6xx
+xx3xxx5xx
+xxx5xx2xx
+9xx1xxxxx
+5x2xx4x86
+```
